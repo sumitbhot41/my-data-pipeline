@@ -5,11 +5,23 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
 
-def preprocess_data(data, target_column):
-    """Preprocess the data."""
-    # Separate features and target
-    X = data.drop(columns=[target_column])
-    y = data[target_column]
+def preprocess_data(data, target_column=None):
+    """Ask the user to select a target column dynamically if not provided."""
+    if target_column is None:
+        print("\nAvailable columns in the dataset:")
+        print(", ".join(list(data.columns)))  # Display columns properly
+
+        # Ensure the input is a single valid column name
+        while True:
+            target_column = input("\nEnter the target column name: ").strip()
+            if target_column in data.columns:
+                break  # Valid input, exit loop
+            print(f"Invalid column name. Please select from: {', '.join(data.columns)}")
+
+    logging.info(f"User selected target column: {target_column}")
+
+    X = data.drop(columns=[target_column])  # Features
+    y = data[target_column]  # Target variable
 
     # Define preprocessing for numerical and categorical data
     numerical_features = X.select_dtypes(include=['float64', 'int64']).columns

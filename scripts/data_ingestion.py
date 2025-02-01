@@ -1,8 +1,6 @@
 import pandas as pd
 import os
 import logging
-from scripts.data_ingestion import load_data
-from scripts.data_ingestion import load_csv
 
 
 # Configure logging

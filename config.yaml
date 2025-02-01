@@ -1,0 +1,9 @@
+data:
+  path: "C:/Users/sumit bhot/PycharmProjects/New_data_pipeline/data/data.csv"
+
+model:
+  save_path: "C:/Users/sumit bhot/PycharmProjects/New_data_pipeline/model/best_model.pkl"
+
+output:
+  eda_plots: "C:/Users/sumit bhot/PycharmProjects/New_data_pipeline/output/eda_plots/"
+  performance: "C:/Users/sumit bhot/PycharmProjects/New_data_pipeline/output/model_performance/"

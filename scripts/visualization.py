@@ -5,19 +5,25 @@ import pandas as pd
 import os
 
 
-def plot_feature_importance(model, feature_names, output_folder="outputs/model_performance"):
-    """Plot feature importance."""
-    # Create output folder if it doesn't exist
-    os.makedirs(output_folder, exist_ok=True)
+def generate_plots(model, data):
+    """Generate and save visualization plots."""
+    output_dir = "output/eda_plots"
+    os.makedirs(output_dir, exist_ok=True)
 
-    # Get feature importances
-    importances = model.feature_importances_
-    feature_importance_df = pd.DataFrame({'Feature': feature_names, 'Importance': importances})
-    feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=False)
+    # Example: Feature Importance Plot (For Tree-based models like XGBoost)
+    if hasattr(model, "feature_importances_"):
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x=data.columns, y=model.feature_importances_)
+        plt.xticks(rotation=45)
+        plt.title("Feature Importance")
+        plt.savefig(f"{output_dir}/feature_importance.png")
+        plt.close()
 
-    # Plot feature importance
-    plt.figure(figsize=(10, 6))
-    sns.barplot(x='Importance', y='Feature', data=feature_importance_df)
-    plt.title("Feature Importance")
-    plt.savefig(f"{output_folder}/feature_importance.png")
+    # Example: Histogram of a feature
+    plt.figure(figsize=(8, 5))
+    sns.histplot(data.iloc[:, 0], kde=True, bins=30)
+    plt.title("Distribution of Feature 1")
+    plt.savefig(f"{output_dir}/feature_distribution.png")
     plt.close()
+
+    print("Plots saved in output/eda_plots/")

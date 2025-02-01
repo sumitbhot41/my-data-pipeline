@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-
 def perform_eda(data, output_folder="outputs/eda_plots"):
     """Perform EDA and save plots."""
     # Create output folder if it doesn't exist

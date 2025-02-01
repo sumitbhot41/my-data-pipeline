@@ -9,13 +9,20 @@ import seaborn as sns
 import xgboost
 import tqdm
 
-print(f"NumPy Version: {np.__version__}")
-print(f"Pandas Version: {pd.__version__}")
-print(f"Scikit-Learn Version: {sklearn.__version__}")
-print(f"Scipy Version: {scipy.__version__}")
-print(f"Joblib Version: {joblib.__version__}")
-print(f"PyYAML Version: {yaml.__version__}")
-print(f"Matplotlib Version: {matplotlib.__version__}")
-print(f"Seaborn Version: {sns.__version__}")
-print(f"XGBoost Version: {xgboost.__version__}")
-print(f"TQDM Version: {tqdm.__version__}")
+# Creating a dictionary of package versions
+packages = {
+    "numpy": np.__version__,
+    "pandas": pd.__version__,
+    "scikit-learn": sklearn.__version__,
+    "scipy": scipy.__version__,
+    "joblib": joblib.__version__,
+    "pyyaml": yaml.__version__,
+    "matplotlib": matplotlib.__version__,
+    "seaborn": sns.__version__,
+    "xgboost": xgboost.__version__,
+    "tqdm": tqdm.__version__
+}
+
+# Printing versions
+for pkg, version in packages.items():
+    print(f"!pip install {pkg}=={version}")

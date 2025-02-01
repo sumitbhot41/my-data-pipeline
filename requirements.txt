@@ -1,13 +1,12 @@
 # Core dependencies
-NumPy Version: 2.2.2
-Pandas Version: 2.2.3
-Scikit-Learn Version: 1.6.1
-Scipy Version: 1.15.1
-Joblib Version: 1.4.2
-PyYAML Version: 6.0.2
-Matplotlib Version: 3.10.0
-Seaborn Version: 0.13.2
-XGBoost Version: 2.1.3
 
-# Machine Learning
-tqdm==4.66.1
+!pip install numpy==2.2.2
+!pip install pandas==2.2.3
+!pip install scikit-learn==1.6.1
+!pip install scipy==1.15.1
+!pip install joblib==1.4.2
+!pip install pyyaml==6.0.2
+!pip install matplotlib==3.10.0
+!pip install seaborn==0.13.2
+!pip install xgboost==2.1.3
+!pip install tqdm==4.66.1
